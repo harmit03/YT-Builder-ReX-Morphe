@@ -25,7 +25,7 @@ patches-version = "v1.25.0-dev.9"
 cli-version = "v1.8.0-dev.9"
 rv-brand = "Morphe"
 build-mode = "both"
-excluded-patches = """"\
+excluded-patches = """\
 'Change package name'\
 'Disable Play Store updates'\
 'Custom branding'\
