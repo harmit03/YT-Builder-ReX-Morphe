@@ -17,6 +17,7 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 
 [YouTube-Morphe]
+enabled = true
 app-name = "YouTube"
 cli-source = "MorpheApp/morphe-cli"
 patches-source = "MorpheApp/morphe-patches"
@@ -34,17 +35,16 @@ excluded-patches = """"\
 'Play all'\
 """
 patcher-args = """\
--OdarkThemeBackgroundColor=@android:color/black
--OlightThemeBackgroundColor=@android:color/system_neutral1_100 
+-OdarkThemeBackgroundColor=@android:color/black\
+-OlightThemeBackgroundColor=@android:color/system_neutral1_100\
 """
-enabled = true
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
 arch = "arm64-v8a" 
 
 [Music-Morphe]
-enabled = true
+enabled = false
 app-name = "Music"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
