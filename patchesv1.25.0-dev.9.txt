@@ -1,0 +1,494 @@
+Index: 0
+Name: Override certificate pinning
+Description: Overrides certificate pinning, allowing to inspect traffic via a proxy.
+Enabled: false
+
+Index: 1
+Name: Change package name
+Description: Appends ".morphe" to the package name by default. Changing the package name of the app can lead to unexpected issues.
+Enabled: false
+Options:
+	Title: Package name
+	Description: The name of the package to rename the app to.
+	Required: true
+	Key: packageName
+	Default: Default
+	Possible values:
+		Default (Default)
+	Type: kotlin.String
+	
+	Title: Update permissions
+	Description: Update compatibility receiver permissions. Enabling this can fix installation errors, but this can also break features in certain apps.
+	Required: false
+	Key: updatePermissions
+	Default: false
+	Type: kotlin.Boolean
+	
+	Title: Update providers
+	Description: Update provider names declared by the app. Enabling this can fix installation errors, but this can also break features in certain apps.
+	Required: false
+	Key: updateProviders
+	Default: false
+	Type: kotlin.Boolean
+	
+	Title: Update providers strings
+	Description: Update additional provider names declared by the app in the strings.xml file. Enabling this can fix installation errors, but this can also break features in certain apps.
+	Required: false
+	Key: updateProvidersStrings
+	Default: false
+	Type: kotlin.Boolean
+
+Index: 2
+Name: Disable Play Store updates
+Description: Disables Play Store updates by setting the version code to the maximum allowed. This patch does not work if the app is installed by mounting and may cause unexpected issues with some apps.
+Enabled: false
+
+Index: 44
+Name: Hide ads
+Description: Adds options to remove general ads.
+Enabled: true
+
+Index: 45
+Name: Video ads
+Description: Adds an option to remove ads in the video player.
+Enabled: true
+
+Index: 46
+Name: Copy video URL
+Description: Adds options to display buttons in the video player to copy video URLs.
+Enabled: true
+
+Index: 47
+Name: Remove viewer discretion dialog
+Description: Adds an option to remove the dialog that appears when opening a video that has been age-restricted by accepting it automatically. This does not bypass the age restriction.
+Enabled: true
+
+Index: 48
+Name: Disable double tap actions
+Description: Adds an option to disable player double tap gestures.
+Enabled: true
+
+Index: 49
+Name: Double tap to seek
+Description: Adds additional double-tap to seek values to the YouTube settings menu.
+Enabled: true
+
+Index: 50
+Name: Downloads
+Description: Adds support to download videos with an external downloader app using the in-app download button or a video player action button.
+Enabled: true
+
+Index: 51
+Name: Disable haptic feedback
+Description: Adds an option to disable haptic feedback in the player for various actions.
+Enabled: true
+
+Index: 52
+Name: Loop video
+Description: Adds an option to loop videos and display loop video button in the video player.
+Enabled: true
+
+Index: 53
+Name: Play all
+Description: Adds an option to play all the videos from a channel and to display play all button in the video player.
+Enabled: true
+
+Index: 54
+Name: Reload video
+Description: Adds an option to display reload video button in the video player.
+Enabled: true
+
+Index: 55
+Name: Seekbar
+Description: Adds options to disable precise seeking when swiping up on the seekbar, slide to seek instead of playing at 2x speed when pressing and holding, tapping the player seekbar to seek, hiding the video player seekbar, enabling seeking in livestreams, and expanding the livestream DVR duration.
+Enabled: true
+
+Index: 56
+Name: Swipe controls
+Description: Adds options to enable and configure volume and brightness swipe controls.
+Enabled: true
+
+Index: 57
+Name: Custom branding
+Description: Adds options to change the app icon and app name. Branding cannot be changed for mounted (root) installations.
+Enabled: true
+Options:
+	Title: App name
+	Description: Custom app name.
+	Required: false
+	Key: customName
+	Type: kotlin.String
+	
+	Title: Custom icon
+	Description: Folder with images to use as a custom icon.
+	
+	The folder must contain one or more of the following folders, depending on the DPI of the device:
+	- mipmap-mdpi
+	- mipmap-hdpi
+	- mipmap-xhdpi
+	- mipmap-xxhdpi
+	- mipmap-xxxhdpi
+	
+	Each of the folders must contain all of the following files:
+	morphe_adaptive_background_custom.png
+	morphe_adaptive_foreground_custom.png
+	
+	The image dimensions must be as follows:
+	- mipmap-mdpi: 108x108 px
+	- mipmap-hdpi: 162x162 px
+	- mipmap-xhdpi: 216x216 px
+	- mipmap-xxhdpi: 324x324 px
+	- mipmap-xxxhdpi: 432x432 px
+	
+	Optionally, the path contains a 'drawable' folder with a monochrome icon file:
+	morphe_adaptive_monochrome_custom.xml
+	
+	Optionally, the path contains a notification icon in one of the following formats:
+	- XML vector drawable placed in 'drawable':
+	morphe_notification_icon_custom.xml
+	- PNG raster images placed in the matching 'drawable-<dpi>' folders:
+	- drawable-mdpi/morphe_notification_icon_custom.png (24x24 px)
+	- drawable-hdpi/morphe_notification_icon_custom.png (36x36 px)
+	- drawable-xhdpi/morphe_notification_icon_custom.png (48x48 px)
+	- drawable-xxhdpi/morphe_notification_icon_custom.png (72x72 px)
+	- drawable-xxxhdpi/morphe_notification_icon_custom.png (96x96 px)
+	Required: false
+	Key: customIcon
+	Type: kotlin.String
+
+Index: 58
+Name: Change header
+Description: Adds an option to change the header logo in the top left corner of the app.
+Enabled: true
+Options:
+	Title: Custom header logo
+	Description: Folder with images to use as a custom header logo.
+	
+	The folder must contain one or more of the following folders, depending on the DPI of the device:
+	- drawable-hdpi
+	- drawable-xhdpi
+	- drawable-xxhdpi
+	- drawable-xxxhdpi
+	
+	Each of the folders must contain the following file(s):
+	- morphe_header_custom_light.png
+	- morphe_header_custom_dark.png
+	
+	Required dimensions:
+	- drawable-hdpi: 194x72 px
+	- drawable-xhdpi: 258x96 px
+	- drawable-xxhdpi: 387x144 px
+	- drawable-xxxhdpi: 512x192 px
+	Required: false
+	Key: custom
+	Type: kotlin.String
+
+Index: 59
+Name: Hide video action buttons
+Description: Adds options to hide video action buttons in fullscreen and portrait modes.
+Enabled: true
+
+Index: 60
+Name: Navigation bar
+Description: Adds options to hide and change the bottom navigation bar (such as the Shorts button)  and the upper navigation toolbar. Patching version 20.21.37 and lower also adds a setting to use a wide searchbar.
+Enabled: true
+
+Index: 61
+Name: Hide player overlay buttons
+Description: Adds options to hide the player Cast, Autoplay, Captions, Previous & Next buttons, and the player control buttons background.
+Enabled: true
+
+Index: 62
+Name: Captions
+Description: Adds an option to disable captions from being automatically enabled or to set caption cookies.
+Enabled: true
+
+Index: 63
+Name: Disable layout updates
+Description: Adds an option to disable server side layout updates and use an older UI.
+Enabled: true
+
+Index: 64
+Name: Change form factor
+Description: Adds an option to change the UI appearance to a phone, tablet, or automotive device.
+Enabled: true
+
+Index: 65
+Name: Ambient mode
+Description: Adds options to bypass power saving restrictions for Ambient mode and disable it entirely or in fullscreen.
+Enabled: true
+
+Index: 66
+Name: Hide autoplay preview
+Description: Adds an option to hide the autoplay preview at the end of videos.
+Enabled: true
+
+Index: 67
+Name: Hide end screen cards
+Description: Adds an option to hide suggested video cards at the end of videos.
+Enabled: true
+
+Index: 68
+Name: Hide end screen suggested video
+Description: Adds an option to hide the suggested video at the end of videos.
+Enabled: true
+
+Index: 69
+Name: Hide layout components
+Description: Adds options to hide general layout components.
+Enabled: true
+
+Index: 70
+Name: Hide info cards
+Description: Adds an option to hide info cards that creators add in the video player.
+Enabled: true
+
+Index: 71
+Name: Hide player flyout menu components
+Description: Adds options to hide menu components that appear when pressing the gear icon in the video player.
+Enabled: true
+
+Index: 72
+Name: Disable player popup panels
+Description: Adds an option to disable panels (such as live chat) from opening automatically.
+Enabled: true
+
+Index: 73
+Name: Hide related video overlay
+Description: Adds an option to hide the related video overlay shown when swiping up in fullscreen.
+Enabled: true
+
+Index: 74
+Name: Hide related videos
+Description: Adds options to hide related videos.
+Enabled: true
+
+Index: 75
+Name: Disable rolling number animations
+Description: Adds an option to disable rolling number animations of video view count, user likes, and upload time.
+Enabled: true
+
+Index: 76
+Name: Hide Shorts components
+Description: Adds options to hide components related to Shorts.
+Enabled: true
+Options:
+	Title: Hide Shorts app shortcut
+	Description: Permanently hides the shortcut to open Shorts when long pressing the app icon in your launcher.
+	Required: false
+	Key: hideShortsAppShortcut
+	Default: false
+	Type: kotlin.Boolean
+	
+	Title: Hide Shorts widget
+	Description: Permanently hides the launcher widget Shorts button.
+	Required: false
+	Key: hideShortsWidget
+	Default: false
+	Type: kotlin.Boolean
+
+Index: 77
+Name: Disable sign in to TV popup
+Description: Adds an option to disable the popup asking to sign into a TV on the same local network.
+Enabled: true
+
+Index: 78
+Name: Hide timestamp
+Description: Adds an option to hide the timestamp in the bottom left of the video player.
+Enabled: true
+
+Index: 79
+Name: Miniplayer
+Description: Adds options to change the in-app minimized player.
+Enabled: true
+
+Index: 80
+Name: Override YouTube Music buttons
+Description: Overrides YouTube Music buttons to open Morphe Music or any compatible third-party client.
+Enabled: true
+
+Index: 81
+Name: Exit fullscreen mode
+Description: Adds options to automatically exit fullscreen mode when a video reaches the end.
+Enabled: true
+
+Index: 82
+Name: Open videos fullscreen
+Description: Adds an option to open videos in full screen portrait mode.
+Enabled: true
+
+Index: 83
+Name: Custom player overlay opacity
+Description: Adds an option to change the opacity of the video player background when player controls are visible.
+Enabled: true
+
+Index: 84
+Name: Return YouTube Dislike
+Description: Adds an option to show the dislike count of videos with Return YouTube Dislike.
+Enabled: true
+
+Index: 85
+Name: Shorts autoplay
+Description: Adds options to automatically play the next Short.
+Enabled: true
+
+Index: 86
+Name: Disable Shorts resuming on startup
+Description: Adds an option to disable Shorts from resuming on app startup when Shorts were last being watched.
+Enabled: true
+
+Index: 87
+Name: Open Shorts in regular player
+Description: Adds options to open Shorts in the regular video player.
+Enabled: true
+
+Index: 88
+Name: SponsorBlock
+Description: Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.
+Enabled: true
+
+Index: 89
+Name: Spoof app version
+Description: Adds an option to trick YouTube into thinking you are running an older version of the app. This can be used to restore old UI elements and features.
+Enabled: true
+
+Index: 90
+Name: Change start page
+Description: Adds an option to set which page the app opens in instead of the homepage.
+Enabled: true
+
+Index: 91
+Name: Theme
+Description: Adds options for theming and applies a custom background theme (dark background theme defaults to pure black).
+Enabled: true
+Options:
+	Title: Dark theme background color
+	Description: Can be a hex color (#RRGGBB) or a color resource reference.
+	Required: false
+	Key: darkThemeBackgroundColor
+	Default: @android:color/black
+	Possible values:
+		@android:color/black (Pure black)
+		@android:color/system_neutral1_900 (Material You (Neutral))
+		@android:color/system_accent1_800 (Material You - Primary)
+		@android:color/system_accent2_800 (Material You - Secondary)
+		@android:color/system_accent3_800 (Material You - Tertiary)
+		#212121 (Classic (old YouTube))
+		#181825 (Catppuccin (Mocha))
+		#290025 (Dark pink)
+		#001029 (Dark blue)
+		#002905 (Dark green)
+		#282900 (Dark yellow)
+		#291800 (Dark orange)
+		#290000 (Dark red)
+	Type: kotlin.String
+	
+	Title: Light theme background color
+	Description: Can be a hex color (#RRGGBB) or a color resource reference.
+	Required: false
+	Key: lightThemeBackgroundColor
+	Default: @android:color/white
+	Possible values:
+		@android:color/white (White)
+		@android:color/system_neutral1_100 (Material You (Neutral))
+		@android:color/system_accent1_200 (Material You - Primary)
+		@android:color/system_accent2_200 (Material You - Secondary)
+		@android:color/system_accent3_200 (Material You - Tertiary)
+		#E6E9EF (Catppuccin (Latte))
+		#FCCFF3 (Light pink)
+		#D1E0FF (Light blue)
+		#CCFFCC (Light green)
+		#FDFFCC (Light yellow)
+		#FFE6CC (Light orange)
+		#FFD6D6 (Light red)
+	Type: kotlin.String
+
+Index: 92
+Name: Alternative thumbnails
+Description: Adds options to replace video thumbnails using the DeArrow API or image captures from the video.
+Enabled: true
+
+Index: 93
+Name: Bypass image region restrictions
+Description: Adds an option to use a different host for user avatar and channel images and can fix missing images that are blocked in some countries.
+Enabled: true
+
+Index: 94
+Name: Remove background playback restrictions
+Description: Removes restrictions on background playback, including playing kids videos in the background.
+Enabled: true
+
+Index: 95
+Name: Enable debugging
+Description: Adds options for debugging and exporting Morphe logs to the clipboard.
+Enabled: true
+
+Index: 96
+Name: Spoof device dimensions
+Description: Adds an option to spoof the device dimensions which can unlock higher video qualities.
+Enabled: true
+
+Index: 97
+Name: Check watch history domain name resolution
+Description: Checks if the device DNS server is preventing user watch history from being saved.
+Enabled: true
+
+Index: 98
+Name: GmsCore support
+Description: Allows the app to work without root by using a different package name when patched using a GmsCore instead of Google Play Services.
+Enabled: true
+
+Index: 99
+Name: Bypass URL redirects
+Description: Adds an option to bypass URL redirects and open the original URL directly.
+Enabled: true
+
+Index: 100
+Name: Open links externally
+Description: Adds an option to always open links in your browser instead of with the in-app browser.
+Enabled: true
+
+Index: 101
+Name: Sanitize sharing links
+Description: Removes the tracking query parameters from shared links.
+Enabled: true
+
+Index: 102
+Name: Disable QUIC protocol
+Description: Adds an option to disable QUIC (Quick UDP Internet Connections) network protocol.
+Enabled: true
+
+Index: 103
+Name: Open system share sheet
+Description: Adds an option to always open the system share sheet instead of the in-app share sheet.
+Enabled: true
+
+Index: 104
+Name: Spoof video streams
+Description: Adds options to spoof the client video streams to fix playback.
+Enabled: true
+
+Index: 105
+Name: Disable DRC audio
+Description: Adds an option to disable DRC (Dynamic Range Compression) audio.
+Enabled: true
+
+Index: 106
+Name: Force original audio
+Description: Adds an option to always use the original audio track.
+Enabled: true
+
+Index: 107
+Name: Disable video codecs
+Description: Adds options to disable HDR and VP9 codecs.
+Enabled: true
+
+Index: 108
+Name: Video quality
+Description: Adds options to set default video qualities and always use the advanced video quality menu.
+Enabled: true
+
+Index: 109
+Name: Playback speed
+Description: Adds options to customize available playback speeds, set a default playback speed, and show a speed dialog button in the video player.
+Enabled: true
